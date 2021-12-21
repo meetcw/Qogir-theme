@@ -4043,8 +4043,8 @@ window {
   border: none;
 
   &.csd {
-    box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.15), rgba(black, 0.08)),
-                0 8px 8px 0 if($variant == 'light', rgba(black, 0.15), rgba(black, 0.08)),
+    box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
+                0 8px 8px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
                 0 0 0 1px $_wm_border;
     margin: 0px;
     border-radius: $corner_radius;
@@ -4055,7 +4055,7 @@ window {
       // change when we go to backdrop, to prevent jumping windows.
       // The biggest shadow should be in the same order then in the active state
       // or the jumping will happen during the transition.
-      box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent,
+      box-shadow: 0 3px 5px 0 rgba(black, 0.15), 0 8px 8px 0 rgba(black, 0.15),
                   0 3px 3px 0 if($variant == 'light', rgba(black, 0.1), rgba(black, 0.06)),
                   0 0 0 1px $_wm_border;
     }
@@ -4088,7 +4088,8 @@ window {
   &.tiled-right,
   &.tiled-bottom {
     border-radius: 0;
-    box-shadow: 0 3px 3px 0 if($variant == 'light', rgba(black, 0.1), rgba(black, 0.06));
+    box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
+                0 8px 8px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38));
   }
 
   &.popup { box-shadow: none; }

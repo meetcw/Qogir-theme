@@ -3810,8 +3810,8 @@ decoration {
   border-radius: $corner_radius;
   border: none;
   transition: $backdrop_transition;
-  box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.15), rgba(black, 0.08)),
-              0 8px 8px 0 if($variant == 'light', rgba(black, 0.15), rgba(black, 0.08)),
+  box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
+              0 8px 8px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
               0 0 0 1px $_wm_border;
 
   // this is used for the resize cursor area
@@ -3820,7 +3820,7 @@ decoration {
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
-    box-shadow: 0 3px 5px 0 transparent, 0 8px 8px 0 transparent,
+    box-shadow: 0 3px 5px 0 rgba(black, 0.15), 0 8px 8px 0 rgba(black, 0.15),
                 0 3px 3px 0 if($variant == 'light', rgba(black, 0.1), rgba(black, 0.06)),
                 0 0 0 1px $_wm_border;
   }
@@ -3829,13 +3829,16 @@ decoration {
   .fullscreen &,
   .tiled & {
     border-radius: 0;
-    box-shadow: 0 3px 3px 0 if($variant == 'light', rgba(black, 0.1), rgba(black, 0.06));
+    box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
+                0 8px 8px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38));
   }
 
   // server-side decorations as used by mutter
   .ssd & {
     border-radius: $corner_radius $corner_radius 0 0;
-    box-shadow: 0 0 0 1px $borders_color;
+    box-shadow: 0 3px 5px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
+                0 8px 8px 0 if($variant == 'light', rgba(black, 0.25), rgba(black, 0.38)),
+                0 0 0 1px $borders_color;
 
     &.maximized { border-radius: 0; }
   }
